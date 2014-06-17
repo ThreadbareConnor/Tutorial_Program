@@ -64,6 +64,9 @@ class Program // Class creation, any piece of code you write should be in a clas
             case 8:
                 SwitchContd();
                 break;
+            case 9:
+                Inheritance();
+                break;
             default:
                 Console.WriteLine("THIS NUMBER IN NOT ON THE LIST! TRY AGAIN.");
                 Selection();
