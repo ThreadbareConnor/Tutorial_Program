@@ -1,23 +1,7 @@
 ﻿using System; // Namespace declaration (collection of classes, interfaces, structs, enums, delegates and other namespaces)
-public class Employee
-{
-    public string firstName;
-    public string lastName;
-    public string email;
-    public void PrintFullName()
-    {
 
-    }
-}
-public class FullTimeEmployee : Employee
-{
-    public double yearlySalery;
-}
-public class PartTimeEmployee : Employee
-{
-    public float hourlyRate;
-}
-class Program // Class creation, any piece of code you write should be in a class
+
+public class Program // Class creation, any piece of code you write should be in a class
 {// Brackets indicate what is inside the class and are used to contain functions.
     static void Main()// Method. These do the acctual work in a program.
     {// This is the start of the program and is indicated by the "Main" method which is ALWAYS the entry point to your application 
@@ -41,43 +25,43 @@ class Program // Class creation, any piece of code you write should be in a clas
         switch (input)
         {
             case 1:
-                ReadandWrite();
+                Lessons.ReadandWrite();
                 break;
             case 2:
-                Types();
+                Lessons.Types();
                 break;
             case 3:
-                Escapes();
+                Lessons.Escapes();
                 break;
             case 4:
-                IntandBool();
+                Lessons.IntandBool();
                 break;
             case 5:
-                If();
+                Lessons.If();
                 break;
             case 6:
-                While();
+                Lessons.While();
                 break;
             case 7:
-                Switch();
+                Lessons.Switch();
                 break;
             case 8:
-                SwitchContd();
+                Lessons.SwitchContd();
                 break;
             case 9:
-                Inheritance();
+                Lessons.Inheritance();
                 break;
             case 10:
-                Methodparameters();
+                Lessons.Methodparameters();
                 break;
             case 11:
-                Methodexample2();
+                Lessons.Methodexample2();
                 break;
             case 12:
-                Methodexample4();
+                Lessons.Methodexample4();
                 break;
-            case 13;
-                Methodexample6();
+            case 13:
+                Lessons.Methodexample6();
                 break;
             case 14:
 
@@ -87,7 +71,10 @@ class Program // Class creation, any piece of code you write should be in a clas
                 break;
         }
     }
-    static void ReadandWrite()
+}
+public class Lessons
+{ 
+   public static void ReadandWrite()
     {
         Console.WriteLine("Welcome to Crane Style Labs C# training\n");
         Console.WriteLine("To write to the console use the command \"Console.WriteLine(\"placeholder\")\". \nThis is how you will communicate to your user\n");
@@ -107,7 +94,7 @@ class Program // Class creation, any piece of code you write should be in a clas
         Console.WriteLine("\nHello " + username);
         Selection();
     }
-    static void IntandBool()
+   public static void IntandBool()
     {
         bool b = false;
 
@@ -125,7 +112,7 @@ class Program // Class creation, any piece of code you write should be in a clas
         Console.WriteLine("Decimals are much more precise than floats but they use more memory ex. {0}", dec);
         Selection();
     }
-    static void Escapes()
+   public static void Escapes()
     {
         {
             //Strings values are usually enclosed in double quotes
@@ -138,7 +125,7 @@ class Program // Class creation, any piece of code you write should be in a clas
             Selection();
         }
     }
-    static void Types()
+   public static void Types()
     {
 
         int i = 100;
@@ -194,7 +181,7 @@ class Program // Class creation, any piece of code you write should be in a clas
 
 
     }
-    static void If()
+   public static void If()
     {
 
         Console.WriteLine("please enter an even number");
@@ -213,7 +200,7 @@ class Program // Class creation, any piece of code you write should be in a clas
         Selection();
 
     }
-    static void While()
+   public static void While()
     {
         string userChoice = "";
         do
@@ -240,7 +227,7 @@ class Program // Class creation, any piece of code you write should be in a clas
         } while (userChoice == "YES");
         Selection();
     }
-    static void Switch()
+   public static void Switch()
     {
         Console.WriteLine("Please enter a number");
         int userNumber = int.Parse(Console.ReadLine());
@@ -260,7 +247,7 @@ class Program // Class creation, any piece of code you write should be in a clas
         }
 
     }
-    static void SwitchContd()
+   public static void SwitchContd()
     {
         int totalCoffeeCost = 0;
     Start:
@@ -306,7 +293,7 @@ class Program // Class creation, any piece of code you write should be in a clas
 
         Selection();
     }
-    static void ForEach()
+   public static void ForEach()
     {
         int[] numbers = new int[3];
         numbers[0] = 101;
@@ -355,7 +342,7 @@ class Program // Class creation, any piece of code you write should be in a clas
         }
         Selection();
     }
-    static void Inheritance()
+   public static void Inheritance()
     {
         FullTimeEmployee FTE = new FullTimeEmployee();
         FTE.firstName = "Connor";
@@ -367,7 +354,7 @@ class Program // Class creation, any piece of code you write should be in a clas
         
        Selection();
     }
-    static void Methodparameters()
+   public static void Methodparameters()
     {
         Console.WriteLine("Methods have four parameters");
         Console.WriteLine("The first is the Value parameter. This is used if you want to pass a variable, \nbut do not want it to be canged by the method you are passing it to");
@@ -377,24 +364,24 @@ class Program // Class creation, any piece of code you write should be in a clas
         Console.WriteLine("Methods allow you to store a procidure and use is multiple times");
 
     }
-    static void Methodexample1(ref int j)
+   public static void Methodexample1(ref int j)
     {
         j = j * 2;
     }
-    static void Methodexample2()
+   public static void Methodexample2()
     {
         int i = 155;
         Methodexample1(ref i);
         Console.WriteLine(i);
         Selection();
     }
-    static void Methodexample3(int FN, int SN, out int Sum, out int Product)
+   public static void Methodexample3(int FN, int SN, out int Sum, out int Product)
     {
         Sum = FN + SN;
         Product = FN * SN;
 
     }
-    static void Methodexample4()
+   public static void Methodexample4()
     {
         Console.WriteLine("Please enter a first number");
         int FN = int.Parse(Console.ReadLine());
@@ -406,9 +393,10 @@ class Program // Class creation, any piece of code you write should be in a clas
         Console.WriteLine("Sum = {0}, Product = {1}", Sum, Product);
         Selection();
     }
-    static void Methodexample5(params int[] Numbers)
-        // your array must always go last in the list of method parameters and you can only have one array per method
+   public static void Methodexample5(params int[] Numbers)
+       
     {
+        // your array must always go last in the list of method parameters and you can only have one array per method
         Console.WriteLine ("There are {0} elements",Numbers.Length);
         foreach(int i in Numbers)
         {
@@ -416,7 +404,7 @@ class Program // Class creation, any piece of code you write should be in a clas
             Console.WriteLine(i);
         }
     }
-    static void Methodexample6()
+   public static void Methodexample6()
     {
         int[] Numbers = new int[3];
         Numbers[0] = 101;
@@ -424,8 +412,26 @@ class Program // Class creation, any piece of code you write should be in a clas
         Numbers[2] = 103;
         Methodexample5(Numbers);
     }
-    static void Namespaces()
+   public static void Namespaces()
     {
 
     }
-} 
+}
+public class Employee
+{
+    public string firstName;
+    public string lastName;
+    public string email;
+    public void PrintFullName()
+    {
+
+    }
+}
+public class FullTimeEmployee : Employee
+{
+    public double yearlySalery;
+}
+public class PartTimeEmployee : Employee
+{
+    public float hourlyRate;
+}
