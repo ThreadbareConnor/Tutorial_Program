@@ -36,7 +36,7 @@ class Program // Class creation, any piece of code you write should be in a clas
     }
     static void Selection()
     {
-        Console.WriteLine("\n Please select a lesson \n 1-Readline: Concatinate and Placeholder Syntax \n 2-Types \n 3-Escape Sequences \n 4-Int and Bool \n 5-If \n 6-Do While \n 7-Switch \n 8-Switch continued");
+        Console.WriteLine("\n Please select a lesson \n 1-Readline: Concatinate and Placeholder Syntax \n 2-Types \n 3-Escape Sequences \n 4-Int and Bool \n 5-If \n 6-Do While \n 7-Switch \n 8-Switch continued \n 9-Inheritance \n 10-Method Parameters \n 11-Method example 1 \n 12-Method example 2 \n 13-Arrays in Methods");
         int input = int.Parse(Console.ReadLine());
         switch (input)
         {
@@ -67,6 +67,20 @@ class Program // Class creation, any piece of code you write should be in a clas
             case 9:
                 Inheritance();
                 break;
+            case 10:
+                Methodparameters();
+                break;
+            case 11:
+                Methodexample2();
+                break;
+            case 12:
+                Methodexample4();
+                break;
+            case 13;
+                Methodexample6();
+                break;
+            case 14:
+
             default:
                 Console.WriteLine("THIS NUMBER IN NOT ON THE LIST! TRY AGAIN.");
                 Selection();
@@ -348,8 +362,70 @@ class Program // Class creation, any piece of code you write should be in a clas
         FTE.lastName = "Fitzgerrell";
         FTE.email = "Connor@threadbaregames,com";
         FTE.yearlySalery = 3000.00;
-        Console.WriteLine("Hello {0} {1}");
+        Console.WriteLine("Hello {0} {1}", FTE.firstName, FTE.lastName);
+        Console.WriteLine("Your email is {0}", FTE.email);
         
        Selection();
     }
-}
+    static void Methodparameters()
+    {
+        Console.WriteLine("Methods have four parameters");
+        Console.WriteLine("The first is the Value parameter. This is used if you want to pass a variable, \nbut do not want it to be canged by the method you are passing it to");
+        Console.WriteLine("The second is the reference parameter.This si used if you want to passa value to a method and have it change that variable.");
+        Console.WriteLine("The third is out paramiter. This is used when you want a method to return more than one value");
+        Console.WriteLine("The fourth is paramiter arrays");
+        Console.WriteLine("Methods allow you to store a procidure and use is multiple times");
+
+    }
+    static void Methodexample1(ref int j)
+    {
+        j = j * 2;
+    }
+    static void Methodexample2()
+    {
+        int i = 155;
+        Methodexample1(ref i);
+        Console.WriteLine(i);
+        Selection();
+    }
+    static void Methodexample3(int FN, int SN, out int Sum, out int Product)
+    {
+        Sum = FN + SN;
+        Product = FN * SN;
+
+    }
+    static void Methodexample4()
+    {
+        Console.WriteLine("Please enter a first number");
+        int FN = int.Parse(Console.ReadLine());
+        Console.WriteLine("Please enter a second Number");
+        int SN = int.Parse(Console.ReadLine());
+        int Sum = 0;
+        int Product = 0;
+        Methodexample3(FN, SN, out Sum, out Product);
+        Console.WriteLine("Sum = {0}, Product = {1}", Sum, Product);
+        Selection();
+    }
+    static void Methodexample5(params int[] Numbers)
+        // your array must always go last in the list of method parameters and you can only have one array per method
+    {
+        Console.WriteLine ("There are {0} elements",Numbers.Length);
+        foreach(int i in Numbers)
+        {
+
+            Console.WriteLine(i);
+        }
+    }
+    static void Methodexample6()
+    {
+        int[] Numbers = new int[3];
+        Numbers[0] = 101;
+        Numbers[1] = 102;
+        Numbers[2] = 103;
+        Methodexample5(Numbers);
+    }
+    static void Namespaces()
+    {
+
+    }
+} 
