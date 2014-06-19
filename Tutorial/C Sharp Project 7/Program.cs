@@ -444,12 +444,10 @@ public class Lessons
        FTE.firstName = "John";
        FTE.lastName = "Doe";
        FTE.PrintFullName();
-
        PartTimeEmployee PTE = new PartTimeEmployee();
        PTE.firstName = "James";
        PTE.lastName = "Smith";
        PTE.PrintFullName();
-
        Program.Selection();
    }
 } 
@@ -483,12 +481,10 @@ public class FullTimeEmployee : Employee
 {
     public double yearlySalery;
     public new void PrintFullName()
-//Use the "new" Keyword to hide the base method and create a modified version of it. Use the "base" keyword to call the base version of a method inspite of a new keyword
+//Use the "new" Keyword to hide the base method and create a modified version of it.
     {
-        base.PrintFullName();
-        //Console.WriteLine(firstName + " " + lastName + "- Contractor");
+        Console.WriteLine(firstName + " " + lastName + "- Contractor");
     }
-    
 }
 // Class created for Inheritance lesson. Child class of Employee.
 public class PartTimeEmployee : Employee
