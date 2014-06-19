@@ -18,9 +18,10 @@ public class Program // Class creation, any piece of code you write should be in
         Console.WriteLine("\n Hello {0} {1}", firstName, lastName);
         Selection();
     }
-    static void Selection()
+    public static void Selection()
     {
-        Console.WriteLine("\n Please select a lesson \n 1-Readline: Concatinate and Placeholder Syntax \n 2-Types \n 3-Escape Sequences \n 4-Int and Bool \n 5-If \n 6-Do While \n 7-Switch \n 8-Switch continued \n 9-Inheritance \n 10-Method Parameters \n 11-Method example 1 \n 12-Method example 2 \n 13-Arrays in Methods");
+        Console.WriteLine("\n Please select a lesson \n 1-Readline: Concatinate and Placeholder Syntax \n 2-Types \n 3-Escape Sequences \n 4-Int and Bool \n 5-If \n 6-Do While \n 7-Switch \n 8-Switch continued \n 9-Inheritance \n 10-Method Parameters");
+        Console.WriteLine(" 11-Method example 1 \n 12-Method example 2 \n 13-Arrays in Methods \n 14-Namespaces \n 15-Static and Instantiated classes \n 16-Method Hiding");
         int input = int.Parse(Console.ReadLine());
         switch (input)
         {
@@ -64,6 +65,11 @@ public class Program // Class creation, any piece of code you write should be in
                 Lessons.Methodexample6();
                 break;
             case 14:
+                Lessons.Namespaces();
+                break;
+            case 15:
+                Lessons.StaticandInstanceClasses();
+                break;
 
             default:
                 Console.WriteLine("THIS NUMBER IN NOT ON THE LIST! TRY AGAIN.");
@@ -92,7 +98,7 @@ public class Lessons
         Console.WriteLine("Another method is to concatenate a string variable with \"Hello\" and print\n ex. \"Hello \" + username");
         string username = firstName + lastName;
         Console.WriteLine("\nHello " + username);
-        Selection();
+        Program.Selection();
     }
    public static void IntandBool()
     {
@@ -110,7 +116,7 @@ public class Lessons
 
         decimal dec = .23456789987654321M;
         Console.WriteLine("Decimals are much more precise than floats but they use more memory ex. {0}", dec);
-        Selection();
+        Program.Selection();
     }
    public static void Escapes()
     {
@@ -122,7 +128,7 @@ public class Lessons
 
             // Escape sequence is backslash. This allows you to print double quotes by telling the program to print whatever comes after it even if it has special meaning within the language
             // A backslash is needed before every special meaning character  
-            Selection();
+            Program.Selection();
         }
     }
    public static void Types()
@@ -176,7 +182,7 @@ public class Lessons
             Console.WriteLine("TryPrase unsuccessful");
             goto TryParse;
         }
-        Selection();
+        Program.Selection();
 
 
 
@@ -197,7 +203,7 @@ public class Lessons
             Console.WriteLine("NO");
             If();
         }
-        Selection();
+        Program.Selection();
 
     }
    public static void While()
@@ -225,7 +231,7 @@ public class Lessons
                 }
             } while (userChoice != "YES" && userChoice != "NO");
         } while (userChoice == "YES");
-        Selection();
+        Program.Selection();
     }
    public static void Switch()
     {
@@ -238,7 +244,7 @@ public class Lessons
             case 20:
             case 30:
                 Console.WriteLine("Your number is {0}", userNumber);
-                Selection();
+                Program.Selection();
                 break;
             default:
                 Console.WriteLine("Your number is not ten, twenty, or thirty");
@@ -291,7 +297,7 @@ public class Lessons
         Console.WriteLine("Thanks for shopping Gnarbucks coffee");
         Console.WriteLine("Bill amount = {0}", totalCoffeeCost);
 
-        Selection();
+        Program.Selection();
     }
    public static void ForEach()
     {
@@ -340,7 +346,7 @@ public class Lessons
                 break;
             //break is used to end the loop in for loops
         }
-        Selection();
+        Program.Selection();
     }
    public static void Inheritance()
     {
@@ -351,8 +357,8 @@ public class Lessons
         FTE.yearlySalery = 3000.00;
         Console.WriteLine("Hello {0} {1}", FTE.firstName, FTE.lastName);
         Console.WriteLine("Your email is {0}", FTE.email);
-        
-       Selection();
+
+        Program.Selection();
     }
    public static void Methodparameters()
     {
@@ -362,7 +368,7 @@ public class Lessons
         Console.WriteLine("The third is out paramiter. This is used when you want a method to return more than one value");
         Console.WriteLine("The fourth is paramiter arrays");
         Console.WriteLine("Methods allow you to store a procidure and use is multiple times");
-
+        Program.Selection();
     }
    public static void Methodexample1(ref int j)
     {
@@ -373,7 +379,7 @@ public class Lessons
         int i = 155;
         Methodexample1(ref i);
         Console.WriteLine(i);
-        Selection();
+        Program.Selection();
     }
    public static void Methodexample3(int FN, int SN, out int Sum, out int Product)
     {
@@ -391,7 +397,7 @@ public class Lessons
         int Product = 0;
         Methodexample3(FN, SN, out Sum, out Product);
         Console.WriteLine("Sum = {0}, Product = {1}", Sum, Product);
-        Selection();
+        Program.Selection();
     }
    public static void Methodexample5(params int[] Numbers)
        
@@ -403,6 +409,7 @@ public class Lessons
 
             Console.WriteLine(i);
         }
+        
     }
    public static void Methodexample6()
     {
@@ -411,10 +418,43 @@ public class Lessons
         Numbers[1] = 102;
         Numbers[2] = 103;
         Methodexample5(Numbers);
+        Program.Selection();
     }
    public static void Namespaces()
     {
+        Console.WriteLine("Namespaces can be used to organize your code and prevent naming conflict. \n The hierarcy works like this: Namespaces > Classes > Functions.\n A namespace is a collection of classes. A class is a collection of functions \nand variables, A function is a collection of code that manipulates data.");
+        Program.Selection();
+    }
+   public static void StaticandInstanceClasses()
+   {
+       //Here are two instantiated classes. They are instantiated the same way your would initialize a variable 
+       Circle C1= new Circle(5);
+       float Area1 = C1.CalculateAreaMethod();
+       Console.WriteLine("Area = {0}", Area1);
 
+       Circle C2 = new Circle(3);
+       float Area2 = C2.CalculateAreaMethod();
+       Console.WriteLine("Area = {0}", Area2);
+       
+       Program.Selection();
+   }
+   public static void MethodHiding()
+   {
+
+   }
+} 
+public class Circle
+    // Class created for "Static and Instance classes"
+{
+    float _pi = 3.14159F;
+    int _radius;
+    public Circle(int radius)
+    {
+        this._radius = radius;
+    }
+    public float CalculateAreaMethod()
+    {
+        return this._pi * this._radius * this._radius;
     }
 }
 public class Employee
