@@ -354,7 +354,7 @@ public class Lessons
         FTE.firstName = "Connor";
         FTE.lastName = "Fitzgerrell";
         FTE.email = "Connor@threadbaregames,com";
-        FTE.yearlySalery = 3000.00;
+        FTE.yearlySalery = 30000.00;
         Console.WriteLine("Hello {0} {1}", FTE.firstName, FTE.lastName);
         Console.WriteLine("Your email is {0}", FTE.email);
 
@@ -427,7 +427,7 @@ public class Lessons
     }
    public static void StaticandInstanceClasses()
    {
-       //Here are two instantiated classes. They are instantiated the same way your would initialize a variable 
+//Here are two instantiated classes. They are instantiated the same way your would initialize a variable 
        Circle C1= new Circle(5);
        float Area1 = C1.CalculateAreaMethod();
        Console.WriteLine("Area = {0}", Area1);
@@ -440,13 +440,22 @@ public class Lessons
    }
    public static void MethodHiding()
    {
-
+       FullTimeEmployee FTE = new FullTimeEmployee();
+       FTE.firstName = "John";
+       FTE.lastName = "Doe";
+       FTE.PrintFullName();
+       PartTimeEmployee PTE = new PartTimeEmployee();
+       PTE.firstName = "James";
+       PTE.lastName = "Smith";
+       PTE.PrintFullName();
+       Program.Selection();
    }
 } 
 public class Circle
-    // Class created for "Static and Instance classes"
+// Class created for Static and Instance classes lesson
 {
-    float _pi = 3.14159F;
+    static float _pi = 3.14159F;
+// this is initialized as static because it will not change ever. Making it staic causes it to only uses one block of memeory no matter how many instances of its class you call
     int _radius;
     public Circle(int radius)
     {
@@ -454,7 +463,7 @@ public class Circle
     }
     public float CalculateAreaMethod()
     {
-        return this._pi * this._radius * this._radius;
+        return _pi * this._radius * this._radius;
     }
 }
 public class Employee
@@ -464,14 +473,22 @@ public class Employee
     public string email;
     public void PrintFullName()
     {
-
+        Console.WriteLine("{0} {1}", firstName, lastName);
     }
 }
+// Class created for Inheritance lesson.
 public class FullTimeEmployee : Employee
 {
     public double yearlySalery;
+    public new void PrintFullName()
+//Use the "new" Keyword to hide the base method and create a modified version of it.
+    {
+        Console.WriteLine(firstName + " " + lastName + "- Contractor");
+    }
 }
+// Class created for Inheritance lesson. Child class of Employee.
 public class PartTimeEmployee : Employee
 {
     public float hourlyRate;
 }
+// Class created for Inheritance lesson. Child class of Employee.
